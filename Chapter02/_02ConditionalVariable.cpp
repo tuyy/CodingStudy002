@@ -12,7 +12,7 @@ std::vector<int> mySharedWork;
 std::mutex mutex_;
 std::condition_variable condVar;
 
-bool dataRead{false};
+bool dataReady{false};
 
 void doWithAtomicBool();
 
@@ -20,7 +20,7 @@ void waitingForWork()
 {
     std::cout << "Waiting" << std::endl;
     std::unique_lock<std::mutex> lck(mutex_);
-    condVar.wait(lck, []{return dataRead;});
+    condVar.wait(lck, []{return dataReady;});
     mySharedWork[1] = 2;
     std::cout << "Work done" << std::endl;
 }
@@ -32,7 +32,7 @@ void setDataRead()
     mySharedWork = {1, 0, 3};
     {
         std::lock_guard<std::mutex> lck(mutex_);
-        dataRead = true;
+        dataReady = true;
     }
     std::cout << "Data prepared" << std::endl;
     condVar.notify_one();

@@ -7,7 +7,7 @@ class SpinLock
 {
 public:
     SpinLock()
-        : mFlag(ATOMIC_FLAG_INIT)
+        : mFlag(false)
     {
     }
 
