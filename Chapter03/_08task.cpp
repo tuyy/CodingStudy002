@@ -148,7 +148,7 @@ void testVoidFuture()
     sVec.push_back(std::async(boo, 1000));
 
     std::cout << "BEGIN" << std::endl;
-    std::for_each(sVec.begin(), sVec.end(), [](auto &&sFut){ sFut.wait(); });
+    std::for_each(sVec.begin(), sVec.end(), [](auto &&sFut){ (void)sFut.get(); });
     std::cout << "END" << std::endl;
 }
 

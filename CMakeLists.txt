@@ -3,7 +3,7 @@ project(CodingStudy002)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Werror -fpic -Wno-non-virtual-dtor -pthread")
+set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Werror -fpic -Wno-non-virtual-dtor -Wno-unused-function -Wno-unused-variable -pthread")
 
 add_executable(CodingStudy002 main.cpp)
 
@@ -21,3 +21,8 @@ add_executable(OneceFlag Chapter03/_05OneceFlag.cpp)
 add_executable(ThreadLocalData Chapter03/_06ThreadLocalData.cpp)
 add_executable(ConVal Chapter03/_07ConVal.cpp)
 add_executable(Task Chapter03/_08task.cpp)
+
+# Chapter04
+add_executable(VectorSum Chapter04/_01VectorSum.cpp)
+add_executable(VectorSumMultiThread Chapter04/_02VectorSumMultiThread.cpp)
+add_executable(VectorSumLocal Chapter04/_03VectorSumLocal.cpp)
